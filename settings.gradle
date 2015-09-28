@@ -1,1 +1,1 @@
-include ':csdn'
+include ':csdn', ':kocore'

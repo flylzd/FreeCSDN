@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FreeCSDN.iml" filepath="$PROJECT_DIR$/FreeCSDN.iml" />
       <module fileurl="file://$PROJECT_DIR$/csdn/csdn.iml" filepath="$PROJECT_DIR$/csdn/csdn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kocore/kocore.iml" filepath="$PROJECT_DIR$/kocore/kocore.iml" />
     </modules>
   </component>
 </project>
