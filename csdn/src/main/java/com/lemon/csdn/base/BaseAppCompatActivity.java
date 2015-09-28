@@ -3,7 +3,6 @@ package com.lemon.csdn.base;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.lemon.csdn.R;
 import com.lemon.library.kocore.utils.StatusBarCompatUtils;
 
 /**
@@ -11,7 +10,6 @@ import com.lemon.library.kocore.utils.StatusBarCompatUtils;
  * 日期：2015-09-28
  */
 public abstract class BaseAppCompatActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

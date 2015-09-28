@@ -1,11 +1,21 @@
 package com.lemon.csdn;
 
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.lemon.csdn.base.BaseActivity;
+import com.nineoldandroids.view.ViewHelper;
+
+import butterknife.Bind;
 
 public class MainActivity extends BaseActivity {
+
+    @Bind(R.id.drawerLayout)
+    DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
 
 
     @Override
@@ -21,6 +31,15 @@ public class MainActivity extends BaseActivity {
 //        getToolbar().setSubtitle("OSChina");
 
 
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, getToolbar(), R.string.drawer_open, R.string.drawer_close) {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+//                super.onDrawerSlide(drawerView, slideOffset);
+                View contentView = drawerLayout.getChildAt(0);
+                ViewHelper.setTranslationX(contentView, drawerView.getMeasuredWidth() * slideOffset);
+            }
+        };
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
     }
 

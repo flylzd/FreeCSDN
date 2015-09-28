@@ -15,7 +15,6 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
  */
 public class StatusBarCompatUtils {
 
-
     public static void setStatusBarTintResource(Activity activity, int res) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -25,7 +24,6 @@ public class StatusBarCompatUtils {
 
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setStatusBarTintResource(res);//通知栏所需颜色
-
     }
 
 
