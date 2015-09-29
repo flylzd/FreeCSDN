@@ -5,6 +5,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.lemon.csdn.base.BaseActivity;
 import com.nineoldandroids.view.ViewHelper;
@@ -17,6 +19,9 @@ public class MainActivity extends BaseActivity {
     DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
+    @Bind(R.id.listView)
+    ListView menuListView;
+    private ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected int getContentViewLayoutId() {
@@ -26,21 +31,20 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-//        getToolbar().setLogo(R.mipmap.ic_launcher);
-//        getToolbar().setNavigationIcon(R.mipmap.ic_launcher);
-//        getToolbar().setSubtitle("OSChina");
-
-
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, getToolbar(), R.string.drawer_open, R.string.drawer_close) {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-//                super.onDrawerSlide(drawerView, slideOffset);
+                super.onDrawerSlide(drawerView, slideOffset);
                 View contentView = drawerLayout.getChildAt(0);
                 ViewHelper.setTranslationX(contentView, drawerView.getMeasuredWidth() * slideOffset);
             }
         };
+        actionBarDrawerToggle.syncState();
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
+        String[] leftMenus = getResources().getStringArray(R.array.left_menus);
+        arrayAdapter = new ArrayAdapter<String>(this, R.layout.listitem_left_menu, R.id.textMenu, leftMenus);
+        menuListView.setAdapter(arrayAdapter);
     }
 
 
